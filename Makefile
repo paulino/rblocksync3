@@ -1,4 +1,4 @@
-.PONY:  package clean
+.PHONY:  package clean
 
 package: clean
 # 	sudo apt-get build-dep .
