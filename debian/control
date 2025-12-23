@@ -1,0 +1,23 @@
+Source: rblocksync3
+Section: utils
+Priority: optional
+Maintainer: Paulino Ruiz de Clavijo Vázquez <pruiz@us..es>
+Build-Depends: debhelper-compat (= 13), python3, dh-python, python3-docutils
+Standards-Version: 4.6.2
+Homepage: https://github.com/paulino/rblocksync3
+Rules-Requires-Root: no
+
+Package: rblocksync3
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}, python3, openssh-client
+Description: Remote block-level file synchronization tool
+ rblocksync3 is a Python tool for efficient file synchronization using
+ block-level hashing. It transfers only the changed blocks between files/devices,
+ making it ideal for synchronizing large files or VM images over SSH connections.
+ .
+ Features:
+  - Block-level synchronization
+  - Keeps zeroes blocks for lvm-thin devices or sparse files
+  - Remote and local file support
+  - Multi-threaded scanning and transfers
+  - SSH-based remote operations

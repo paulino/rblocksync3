@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Generate man page from reStructuredText source
+	rst2man manpage.rst rblocksync3.1
+
+override_dh_auto_install:
+	dh_auto_install
+	cp $(CURDIR)/rblocksync3.py $(CURDIR)/rblocksync3
+	install -D -m 644 rblocksync3.1 debian/rblocksync3/usr/share/man/man1/rblocksync3.1
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f rblocksync3.1
+	rm -f rblocksync3
+
